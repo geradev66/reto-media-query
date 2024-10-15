@@ -1,0 +1,179 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+    height: 100%;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-areas:
+        "header"
+        "nav"
+        "main"
+        "footer";
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 10px;
+    min-height: 100vh;
+}
+
+header {
+    background-color: rgb(190, 190, 190);
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    grid-area: header;
+}
+
+nav {
+    background-color: rgb(16, 111, 253);
+    color: white;
+    padding: 0.9em;
+    grid-area: nav;
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-start; 
+    align-items: center;
+    gap: 1em;
+}
+
+nav .title {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.menu-completo {
+    list-style: none;
+    display: none; 
+    gap: 1em; 
+}
+
+.menu-completo li {
+    cursor: pointer;
+}
+
+main {
+    grid-area: main;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1em;
+    padding: 1em;
+}
+
+.card {
+    border: 1px solid;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+    padding: 2em;
+}
+
+.card img {
+    width: 150px;
+}
+
+.card button {
+    background-color: rgb(16, 111, 253);
+    padding: 0.5em;
+    color: white;
+    border: none;
+    width: 7em;
+}
+
+.paginacion {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    margin-top: 2em;
+}
+
+.paginacion .num, .paginacion .antes, .paginacion .despues {
+    border: 1px solid rgb(16, 111, 253);
+    padding: 1em;
+    color: rgb(16, 111, 253);
+}
+
+footer {
+    background-color: rgb(5, 34, 77);
+    color: white;
+    padding: 1em;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+    grid-area: footer;
+}
+
+footer .redes {
+    display: flex;
+    gap: 1em;
+    font-size: 25px;
+}
+
+
+@media (min-width: 576px) {
+
+    .grid-container {
+        grid-template-areas:
+            "nav header header"
+            "nav main main"
+            "footer footer footer";
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+
+   
+    main {
+        grid-template-columns: repeat(2, 1fr); 
+    }
+
+    nav {
+        flex-direction: column; /* Aseguramos que el menú esté en columna en tabletas */
+    }
+
+    .menu {
+        display: none;
+    }
+
+    .menu-completo {
+
+        display: flex;
+        flex-direction: column; 
+        justify-content: flex-start; 
+        margin-top: 0.5em; 
+        margin-top: 2em;
+    }
+}
+
+@media (min-width: 1024px) {
+   
+    main {
+        grid-template-columns: repeat(3, 1fr); 
+    }
+
+    
+    nav{
+        display: flex;
+        align-items: center;
+        text-align: center;
+    }
+    .menu-completo {
+
+        display: flex;
+        flex-direction: column; 
+        justify-content: flex-start; 
+        margin-top: 0.5em; 
+        margin-top: 2em;
+    }
+}
